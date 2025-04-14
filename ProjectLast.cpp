@@ -165,13 +165,19 @@ int main() {
     
     cout << "\nChoose mode:\n1. Fair\n2. Priority\n> ";
     int choice;
-    cin >> choice;
-    
-    if (choice == 2) {
-        scheduler.processByPriority();
+while (true) {
+    cout << "\nChoose mode:\n1. Fair\n2. Priority\n> ";
+    if (cin >> choice) { 
+        if (choice == 1 || choice == 2) break;
     } else {
-        scheduler.processTasks();
+        cin.clear(); 
+        cin.ignore(1000, '\n');  // Discard bad input
     }
+    cout << "Invalid input! Enter 1 or 2.\n";
+}
+
+if (choice == 1) scheduler.processTasks();
+else scheduler.processByPriority();
     
     return 0;
 }
