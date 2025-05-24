@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Function to compute the series sum: 1/1^1 - 1/2^2 + 1/3^3 - 1/4^4 + ... ± 1/n^n
 double computeSeriesSum(int n) {
     double sum = 0.0;
     for (int i = 1; i <= n; ++i) {
@@ -16,16 +15,13 @@ double computeSeriesSum(int n) {
     return sum;
 }
 
-// Returns true if n is a valid positive integer
 bool isValid(int n) {
     return n > 0;
 }
 
-// Handles input from command line or user prompt
 int getInput(int argc, char* argv[]) {
     int n = 0;
 
-    // Try to get input from command-line argument
     if (argc > 1) {
         try {
             n = stoi(argv[1]);
@@ -40,7 +36,6 @@ int getInput(int argc, char* argv[]) {
         }
     }
 
-    // If no valid command-line input, ask the user
     while (!isValid(n)) {
         cout << "This program computes the sum of the series:\n";
         cout << "1/1^1 - 1/2^2 + 1/3^3 - 1/4^4 + ... ± 1/n^n\n";
@@ -66,6 +61,9 @@ int main(int argc, char* argv[]) {
 
     cout.precision(10);
     cout << "The sum of the first " << n << " terms is: " << sum << endl;
+
+    return 0;
+}
 
     return 0;
 }
