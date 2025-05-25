@@ -1,25 +1,22 @@
 #include <iostream>
 #include <fstream>
-#include <cctype> // for isspace()
+#include <cctype>
 using namespace std;
 
 int main() {
     string inputFile, outputFile;
 
-    // Get input and output file names from the user
     cout << "Enter the name of the input file: ";
     cin >> inputFile;
     cout << "Enter the name of the output file: ";
     cin >> outputFile;
 
-    // Open the input file
     ifstream inFile(inputFile);
     if (!inFile) {
         cerr << "Error: Unable to open input file!" << endl;
         return 1;
     }
 
-    // Open the output file
     ofstream outFile(outputFile);
     if (!outFile) {
         cerr << "Error: Unable to open output file!" << endl;
@@ -28,13 +25,11 @@ int main() {
 
     char ch;
     while (inFile.get(ch)) {
-        // Check if the character is not a whitespace
         if (!isspace(ch)) {
-            outFile << ch; // Write non-whitespace characters to the output file
+            outFile << ch;
         }
     }
 
-    // Close the files
     inFile.close();
     outFile.close();
 
@@ -42,3 +37,8 @@ int main() {
 
     return 0;
 }
+/*
+cd "C:\Users\Mohammed\OneDrive\Desktop"
+g++ 12_text.cpp -o 12_text && 12_text.exe
+
+*/
